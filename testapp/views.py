@@ -22,6 +22,7 @@ def hydjobs1(request):
         jobs_list = paginator.page(paginator.num_pages)
     return render(request, 'testapp/hydjobs.html', {'jobs_list': jobs_list})
 
+# this is banglore jobs View
 
 def blorejobs1(request):
     #jobs_list = blorejobs.objects.order_by('-date')
