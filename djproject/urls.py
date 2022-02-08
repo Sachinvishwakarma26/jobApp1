@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
     url(r'^hydjobs/', views.hydjobs1),
-    url(r'^blorejobs/', views.blorejobs1),
+    url(r'^babglorejobs/', views.blorejobs1),
     url(r'^punejobs/', views.punejobs1),
     url(r'^chennaijobs/', views.chennaijobs1),
     url(r'^noidajobs/', views.noidajobs1),

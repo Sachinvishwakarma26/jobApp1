@@ -6,7 +6,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'hydjobs', views.HydJobsCRUDCBV)
 router.register(r'punejobs', views.PuneJobsCRUDCBV)
-router.register(r'blorejobs', views.BloreJobsCRUDCBV)
+router.register(r'babglorejobs', views.BloreJobsCRUDCBV)
 router.register(r'chennaijobs', views.ChennaiJobsCRUDCBV)
 router.register(r'noidajobs', views.NoidaJobsCRUDCBV)
 

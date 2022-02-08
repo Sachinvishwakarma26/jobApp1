@@ -16,7 +16,7 @@ class hydjobs(models.Model):
         return self.company
 
 
-class blorejobs(models.Model):
+class babglorejobs(models.Model):
     date = models.DateField()
     company = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
