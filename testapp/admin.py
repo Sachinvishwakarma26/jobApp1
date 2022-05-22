@@ -1,5 +1,5 @@
 from django.contrib import admin
-from testapp.models import hydjobs, blorejobs, chennaijobs, punejobs, noidajobs
+from testapp.models import hydjobs, babglorejobs, chennaijobs, punejobs, noidajobs
 
 # Register your models here.
 
@@ -9,7 +9,7 @@ class hydjobsAdmin(admin.ModelAdmin):
                     'eligibility', 'address', 'email', 'phonenumber']
 
 
-class blorejobsAdmin(admin.ModelAdmin):
+class babglorejobsAdmin(admin.ModelAdmin):
     list_display = ['date', 'company', 'title',
                     'eligibility', 'address', 'email', 'phonenumber']
 
@@ -31,6 +31,6 @@ class noidajobsAdmin(admin.ModelAdmin):
 
 admin.site.register(hydjobs, hydjobsAdmin)
 admin.site.register(chennaijobs, chennaijobsAdmin)
-admin.site.register(blorejobs, blorejobsAdmin)
+admin.site.register(babglorejobs, babglorejobsAdmin)
 admin.site.register(punejobs, punejobsAdmin)
 admin.site.register(noidajobs, noidajobsAdmin)

@@ -5,7 +5,7 @@ from django.contrib import admin
 
 router = routers.DefaultRouter()
 router.register('hydjobsinfo', HydJobsCRUDCBV)
-router.register('blorejobsinfo', BloreJobsCRUDCBV)
+router.register('babglorejobs', BloreJobsCRUDCBV)
 router.register('punejobsinfo', PuneJobsCRUDCBV)
 router.register('chennaijobsinfo', ChennaiJobsCRUDCBV)
 router.register('noidajobsinfo', NoidaJobsCRUDCBV)

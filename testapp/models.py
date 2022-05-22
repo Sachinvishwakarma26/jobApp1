@@ -14,7 +14,7 @@ class hydjobs(models.Model):
     # pic=models.ImageField()
 
 
-class blorejobs(models.Model):
+class babglorejobs(models.Model):
     date = models.DateField()
     company = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
