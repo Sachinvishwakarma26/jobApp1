@@ -1,0 +1,60 @@
+name: Download Tomcat package
+
+  get_url: url=https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.58/bin/apache-tomcat-9.0.58.zip
+
+  dest: /tmp
+
+  become: yes
+
+  become_user: jboss
+
+
+
+- name: Create a directory if it does not exist
+
+  ansible.builtin.file:
+
+    path: /jboss/tomcat/old
+
+    state: directory
+
+    mode: '0755'
+
+
+
+- name: Unarchive a file that is already on the remote machine
+
+  ansible.builtin.unarchive:
+
+    src: /tmp/apache-tomcat-9.0.58.zip
+
+    dest: /jboss/tomcat
+
+ 
+
+- name: Changing perm of "", adding "u+x"
+
+  ansible.builtin.command:
+
+    cmd: find /jboss/tomcat/ -type f -iname "*.sh" | xargs /bin/chmod u+x
+
+- name: Remove file (delete file)
+
+  ansible.builtin.file:
+
+    path: /tmp/tomcat.zip
+
+    state: absent
+
+
+
+- name: Create a symbolic link
+
+  ansible.builtin.file:
+
+    src: /jboss/tomcat/apache-tomcat-9.0.58.zip
+    dest: /jboss/tomcat/tomcat
+
+    remote_src: yes
+
+    state: link

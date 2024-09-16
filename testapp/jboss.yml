@@ -1,0 +1,74 @@
+---
+#Install JDK and TOMCAT
+- hosts: 192.168.106.133
+  become: yes
+
+  tasks:
+  - name: Get tomcat downloaded from nas server
+    get_url:
+      url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.58/bin/apache-tomcat-9.0.58.zip
+      dest: /tmp
+      
+
+  - name: Create tomcat folder and subfolder old
+
+
+    ansible.builtin.file:
+
+      path: /jboss/tomcat/old
+
+      state: directory
+
+      mode: '0755'
+
+  - name: Unarchive a file and Copy contents of tomcat-8.5.35 to tomcat folder recursively and remove it
+
+    ansible.builtin.unarchive:
+
+      src: /tmp/apache-tomcat-9.0.58.zip
+      remote_src: yes
+
+      dest: /jboss/tomcat
+
+  - name: Changing perm of "", adding "u+x"
+
+    #ansible.builtin.command:
+    shell:
+
+
+      cmd: find /jboss/tomcat/ -type f -iname "*.sh" | xargs /bin/chmod u+x
+
+  
+  - name: Remove file (delete file)
+
+    ansible.builtin.file:
+
+      path: /tmp/tomcat.zip
+
+      state: absent
+
+
+ 
+  - name: Create a symbolic link
+
+    ansible.builtin.file:
+
+      src: /jboss/tomcat/apache-tomcat-9.0.58
+      dest: /jboss/tomcat/tomcat
+
+      remote_src: yes
+
+      state: link
+ 
+
+  - name: Append application port of IIP in catalina.properties of tomcat at line72
+
+    shell:
+
+      cmd: sed -i '72iappserver.port=8580' /jboss/tomcat/tomcat/conf/catalina.properties
+
+
+
+
+
+
